@@ -10,6 +10,8 @@ import re
 import string
 # fix random seed for reproducibility
 np.random.seed(7)
+from gensim.models import Word2Vec
+import tensorflow
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 from keras.models import Sequential, Model
