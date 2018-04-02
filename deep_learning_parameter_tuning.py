@@ -182,7 +182,7 @@ for k in kernel_size:
             model.fit(x_train, y_train, validation_split=0.1,
                       epochs=10, batch_size=512, callbacks=[cnn_callback])
             best_model = load_model('best_cnn_model')
-            if best_cnn_model.evaluate(x_test, y_test)[1] > best_val_acc:
+            if best_model.evaluate(x_test, y_test)[1] > best_val_acc:
                 best_kernel_size = k
                 best_nb_filter = n
                 best_activation = act
