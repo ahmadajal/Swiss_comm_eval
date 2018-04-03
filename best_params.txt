@@ -1,0 +1,3 @@
+best kernel size: 7 
+best number of filters: 100 
+best activation: relu
