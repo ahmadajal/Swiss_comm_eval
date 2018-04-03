@@ -149,7 +149,7 @@ embedding_layer = Embedding(len(word_index) + 1,
                             trainable=True)
 
 cnn_callback = ModelCheckpoint('best_cnn_model',
-                                 monitor='val_loss',
+                                 monitor='val_acc',
                                  verbose=1,
                                  save_best_only=True,
                                  mode='auto')
@@ -183,6 +183,7 @@ for k in kernel_size:
                       epochs=10, batch_size=512, callbacks=[cnn_callback])
             best_model = load_model('best_cnn_model')
             if best_model.evaluate(x_test, y_test)[1] > best_val_acc:
+                best_val_acc = best_model.evaluate(x_test, y_test)[1]
                 best_kernel_size = k
                 best_nb_filter = n
                 best_activation = act
