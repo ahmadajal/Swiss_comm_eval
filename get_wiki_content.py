@@ -1,3 +1,4 @@
+#script for getting the raw content of wikipedia pages in each category
 import wikipedia
 import re
 import pandas as pd
@@ -36,7 +37,6 @@ def add_contents(category):
     indicies = []
     counter = 0
     ind = 0
-    #for title in list(category['title']):
     while len(content) < 1000 or ind >= len(list(category['title'])):
         counter += 1
         title = list(category['title'])[ind]
@@ -57,8 +57,6 @@ def add_contents(category):
             ind += 1
         except Exception:
             time.sleep(10)
-#         if len(content) == 1000:
-#             break
     result = category.loc[indicies]
     result['content'] = content
     return result
